@@ -1,6 +1,6 @@
 import { Common } from "./Common.page";
 
-export class Homepage {
+export class MainPage {
   static PageElements = {
     typeTabs: ".type-bar-inner",
     optionButtons: ".pane-header",
@@ -85,7 +85,7 @@ export class Homepage {
   }
 
   static uploadLogoImage() {
-    Common.getApi("uploadimage");
+    cy.getApi("uploadImage");
     const logoImageLocation = "Logo/monkey-logo.jpeg";
     cy.fixture(logoImageLocation, null).as("Image");
     cy.get(".logo-preview").click();
@@ -119,7 +119,7 @@ export class Homepage {
   }
 
   static clickCreateQrCodeButton(value) {
-    Common.getApi("custom");
+    cy.getApi("custom");
     this.getCreateQrCodeButton().click();
     cy.get("@api").then((res) => {
       console.log(JSON.parse(res.request.body));

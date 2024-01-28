@@ -27,11 +27,4 @@ export class Common {
   static confirmUrl(url) {
     cy.url().should("eq", url);
   }
-
-  static getApi(endpoint) {
-    cy.intercept({
-      method: "POST",
-      url: `https://api.qrcode-monkey.com//qr/${endpoint}`,
-    }).as("api");
-  }
 }

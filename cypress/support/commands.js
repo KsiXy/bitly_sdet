@@ -31,3 +31,12 @@ Cypress.Commands.add("dataCy", (value) => {
 Cypress.Commands.add("getByText", (selector, text) => {
   cy.get(selector).contains(text);
 });
+
+Cypress.Commands.add("getApi", (endpoint) => {
+  return cy
+    .intercept({
+      method: "POST",
+      url: `https://api.qrcode-monkey.com//qr/${endpoint}`,
+    })
+    .as("api");
+});

@@ -1,5 +1,5 @@
 import { Common } from "../pages/Common.page";
-import { Homepage } from "../pages/Homepage.page";
+import { MainPage } from "../pages/MainPage.page";
 import { Url } from "../pages/Url.page";
 import { TextPage } from "../pages/TextTab.page";
 import { PhonePage } from "../pages/Phone.page";
@@ -10,28 +10,28 @@ describe("", () => {
 
     Common.confirmUrl(Cypress.config().baseUrl);
 
-    Homepage.clickTab("URL");
+    MainPage.clickTab("URL");
     Common.pageIsLoaded("url");
     Common.acceptCookies();
 
     Url.typeUrl("https://www.myspace.com");
 
-    Homepage.clickOptionButton("Set Colors");
-    Homepage.getColorPicker("foreground");
-    Homepage.chooseColor("foreground", "red");
+    MainPage.clickOptionButton("Set Colors");
+    MainPage.getColorPicker("foreground");
+    MainPage.chooseColor("foreground", "red");
 
-    Homepage.getColorPicker("background");
-    Homepage.chooseColor("background", "yellow");
+    MainPage.getColorPicker("background");
+    MainPage.chooseColor("background", "yellow");
 
-    Homepage.clickOptionButton("Add Logo");
-    Homepage.uploadLogoImage();
-    Homepage.getRemoveLogoButton();
+    MainPage.clickOptionButton("Add Logo");
+    MainPage.uploadLogoImage();
+    MainPage.getRemoveLogoButton();
 
-    Homepage.clickOptionButton("Customize Design");
-    Homepage.selectShape();
+    MainPage.clickOptionButton("Customize Design");
+    MainPage.selectShape();
 
-    Homepage.clickCreateQrCodeButton("https://www.myspace.com");
-    Homepage.checkButtonEnabled();
+    MainPage.clickCreateQrCodeButton("https://www.myspace.com");
+    MainPage.checkButtonEnabled();
   });
 
   it("Should generate a QR code for the given text", () => {
@@ -39,27 +39,27 @@ describe("", () => {
 
     Common.confirmUrl(Cypress.config().baseUrl);
 
-    Homepage.clickTab("Text");
+    MainPage.clickTab("Text");
     Common.pageIsLoaded("text");
     Common.acceptCookies();
 
     TextPage.typeText();
 
-    Homepage.clickOptionButton("Set Colors");
-    Homepage.getColorPicker("foreground");
-    Homepage.chooseColor("foreground", "red");
+    MainPage.clickOptionButton("Set Colors");
+    MainPage.getColorPicker("foreground");
+    MainPage.chooseColor("foreground", "red");
 
-    Homepage.getColorPicker("background");
-    Homepage.chooseColor("background", "yellow");
+    MainPage.getColorPicker("background");
+    MainPage.chooseColor("background", "yellow");
 
-    Homepage.clickOptionButton("Add Logo");
-    Homepage.chooseLogo();
+    MainPage.clickOptionButton("Add Logo");
+    MainPage.chooseLogo();
 
-    Homepage.clickOptionButton("Customize Design");
-    Homepage.selectShape();
+    MainPage.clickOptionButton("Customize Design");
+    MainPage.selectShape();
 
-    Homepage.clickCreateQrCodeButton("Random text");
-    Homepage.checkButtonEnabled();
+    MainPage.clickCreateQrCodeButton("Random text");
+    MainPage.checkButtonEnabled();
   });
 
   it("Should generate a QR code for the given text", () => {
@@ -67,26 +67,26 @@ describe("", () => {
 
     Common.confirmUrl(Cypress.config().baseUrl);
 
-    Homepage.clickTab("Phone");
+    MainPage.clickTab("Phone");
     Common.pageIsLoaded("phone");
     Common.acceptCookies();
 
     PhonePage.typePhone();
 
-    Homepage.clickOptionButton("Set Colors");
-    Homepage.getColorPicker("foreground");
-    Homepage.chooseColor("foreground", "red");
+    MainPage.clickOptionButton("Set Colors");
+    MainPage.getColorPicker("foreground");
+    MainPage.chooseColor("foreground", "red");
 
-    Homepage.getColorPicker("background");
-    Homepage.chooseColor("background", "yellow");
+    MainPage.getColorPicker("background");
+    MainPage.chooseColor("background", "yellow");
 
-    Homepage.clickOptionButton("Add Logo");
-    Homepage.chooseLogo();
+    MainPage.clickOptionButton("Add Logo");
+    MainPage.chooseLogo();
 
-    Homepage.clickOptionButton("Customize Design");
-    Homepage.selectShape();
+    MainPage.clickOptionButton("Customize Design");
+    MainPage.selectShape();
 
-    Homepage.clickCreateQrCodeButton("tel:123456789");
-    Homepage.checkButtonEnabled();
+    MainPage.clickCreateQrCodeButton("tel:123456789");
+    MainPage.checkButtonEnabled();
   });
 });
