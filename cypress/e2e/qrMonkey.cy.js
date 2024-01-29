@@ -62,7 +62,7 @@ describe("", () => {
     MainPage.checkButtonEnabled();
   });
 
-  it("Should generate a QR code for the given text", () => {
+  it("Should generate a QR code for the given phone number", () => {
     cy.visit("/");
 
     Common.confirmUrl(Cypress.config().baseUrl);

@@ -1,5 +1,3 @@
-import { Common } from "./Common.page";
-
 export class MainPage {
   static PageElements = {
     typeTabs: ".type-bar-inner",
@@ -122,8 +120,6 @@ export class MainPage {
     cy.getApi("custom");
     this.getCreateQrCodeButton().click();
     cy.get("@api").then((res) => {
-      console.log(JSON.parse(res.request.body));
-
       const resBody = JSON.parse(res.request.body);
 
       expect(resBody.data).to.equal(value);
