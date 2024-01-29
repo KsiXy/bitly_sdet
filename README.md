@@ -1,8 +1,12 @@
 # QR-code Monkey Test
 
-This repository contains UI tests for the [QR code monkey](https://www.qrcode-monkey.com/) website using Cypress framework. 
+This repository contains UI tests for the [QR code monkey](https://www.qrcode-monkey.com/) website using Cypress framework.
 
 ## Getting Started
+
+**Mandatory requirements**
+
+- Node.js version 18 or higher installed - [link](https://nodejs.org/en/download/current)
 
 To run the tests, follow these steps:
 
@@ -35,7 +39,9 @@ npm run e2e
 - Once Cypress app is open, choose a browser to run the tests in.
 - By clicking on the 'qrMonkey' test file, the tests will automatically run
 
-## Description
+## Tehnical description
+
+### Test scenarios
 
 The tests are covering three scenarios to ensure that website is working properly.
 
@@ -43,4 +49,13 @@ The tests are covering three scenarios to ensure that website is working properl
 - Generating a QR code with Text
 - Generating a QR code with Phone
 
-The generated QR code is then checked by an API call by checking if the request body was correctly sent and that the status is successful.
+### Selected approach
+
+The approach that was used was page object model, where the page elements with methods to interact with them are stored in each [Name].page file.
+For the simplicity of the challenge and code, I didn't create a .page file for every single page, but stored most of the common elements and methods inside the 'Common.page.js', but in general that would be an approach to use.
+
+### Code standards
+
+Abstractions for different actions were created in order to simplify the process of writing tests and make it reusable. Example of this is:
+
+- `clickOptionButton(option)` method which accepts an attribute of the button name as a string and can be re-used in tests by passing the name we need.
